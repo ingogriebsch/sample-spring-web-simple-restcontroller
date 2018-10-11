@@ -1,4 +1,5 @@
 # Spring Web simple REST controller sample
+[![Build Status](https://travis-ci.org/ingogriebsch/sample-spring-web-simple-restcontroller.svg?branch=master)](https://travis-ci.org/ingogriebsch/sample-spring-web-simple-restcontroller)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This sample shows you how to implement a simple REST controller with Spring Web (and Spring Boot).
