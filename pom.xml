@@ -101,11 +101,26 @@
 				<version>4.3.0</version>
 			</plugin>
 			<plugin>
+                <!-- https://docs.spring.io/spring-boot/docs/1.15.10.RELEASE/maven-plugin -->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-build-info</id>
+						<goals>
+                            <goal>build-info</goal>
+						</goals>
+						<configuration>
+							<additionalProperties>
+				                <encoding.source>UTF-8</encoding.source>
+				                <java.source>${maven.compiler.source}</java.source>
+				                <java.target>${maven.compiler.target}</java.target>
+                            </additionalProperties>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
