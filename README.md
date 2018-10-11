@@ -1,7 +1,7 @@
-# Spring Web simple REST controller example
+# Spring Web simple REST controller sample
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-This example shows you how to implement a simple REST controller with Spring Web (and Spring Boot).
+This sample shows you how to implement a simple REST controller with Spring Web (and Spring Boot).
 
 ## Used frameworks
 Collection of the mainly used frameworks in this project. There are more, but they are not that present inside the main use case therefore they are not listed here.
