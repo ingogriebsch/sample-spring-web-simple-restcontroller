@@ -25,6 +25,16 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+
+	<developers>
+		<developer>
+            <id>ingogriebsch</id>
+			<name>Ingo Griebsch</name>
+			<email>ingogriebsch@gmx.de</email>
+			<url>https://ingogriebsch.de</url>
+			<timezone>Europe/Berlin</timezone>
+        </developer>
+    </developers>
   
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
