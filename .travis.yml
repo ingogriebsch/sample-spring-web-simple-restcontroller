@@ -1,5 +1,5 @@
 after_success:
-  - ./mvnw jacoco:report coveralls:report -B
+  - ./mvnw coveralls:report -B
 cache:
   directories:
   - $HOME/.m2
