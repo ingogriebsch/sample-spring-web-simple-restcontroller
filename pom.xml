@@ -26,6 +26,9 @@
 
 	<name>Spring Web simple REST controller sample</name>
 	<description>This sample shows you how to implement a simple REST controller with Spring Web (and Spring Boot)</description>
+    <url>https://github.com/ingogriebsch/sample-spring-web-simple-restcontroller</url>
+    <inceptionYear>2018</inceptionYear>
+    <organization />
 
 	<licenses>
 		<license>
@@ -35,6 +38,10 @@
 		</license>
 	</licenses>
 
+    <scm>
+        <url>${project.url}</url>
+    </scm>
+    
 	<developers>
 		<developer>
             <id>ingogriebsch</id>
@@ -44,11 +51,16 @@
 			<timezone>Europe/Berlin</timezone>
         </developer>
     </developers>
+
+	<issueManagement>
+	    <url>${project.url}/issues</url>
+	    <system>GitHub</system>
+	</issueManagement>    
   
 	<properties>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
