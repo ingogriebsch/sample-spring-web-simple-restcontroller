@@ -9,18 +9,23 @@
  */
 package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
+import static com.github.ingogriebsch.sample.spring.web.restcontroller.Application.main;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
 public class ApplicationTests {
 
     @Test
-    public void contextLoads() {
-        // nothing to do here because the configuration of the test results in starting up the application context.
+    public void main_should_load_context() {
+        main(new String[] {});
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void main_should_throw_exception_if_called_with_null() {
+        main(null);
     }
 
 }
