@@ -96,13 +96,12 @@
 
 	<build>
 		<plugins>
-			<plugin>
+            <plugin>
                 <!-- https://docs.spring.io/spring-boot/docs/1.15.10.RELEASE/maven-plugin -->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>generate-build-info</id>
 						<goals>
                             <goal>build-info</goal>
 						</goals>
