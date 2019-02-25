@@ -108,6 +108,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin><!-- https://code.revelc.net/formatter-maven-plugin -->
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>2.7.3</version>
+                <configuration>
+                    <configFile>/src/config/java-formatter.xml</configFile>
+                    <directories>
+                        <directory>src/main/java</directory>
+                        <directory>src/main/resources</directory>
+                        <directory>src/test/java</directory>
+                        <directory>src/test/resources</directory>
+                    </directories>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>format</id>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin><!-- https://github.com/walokra/markdown-page-generator-plugin -->
                 <groupId>com.ruleoftech</groupId>
                 <artifactId>markdown-page-generator-plugin</artifactId>
