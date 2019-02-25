@@ -89,6 +89,24 @@
 
 	<build>
 		<plugins>
+            <plugin><!-- https://code.revelc.net/impsort-maven-plugin -->
+                <groupId>net.revelc.code</groupId>
+                <artifactId>impsort-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <configuration>
+                    <staticGroups>java.,javax.,*</staticGroups>
+                    <groups>java.,javax.,com.,org.,*</groups>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin><!-- https://www.mojohaus.org/license-maven-plugin -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>

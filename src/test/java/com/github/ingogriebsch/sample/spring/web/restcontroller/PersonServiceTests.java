@@ -19,8 +19,9 @@
  */
 package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
-import static com.google.common.collect.Sets.newHashSet;
 import static java.util.UUID.randomUUID;
+
+import static com.google.common.collect.Sets.newHashSet;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
 import static org.assertj.core.api.Assertions.assertThat;
