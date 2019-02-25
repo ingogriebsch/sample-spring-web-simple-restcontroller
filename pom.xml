@@ -113,6 +113,8 @@
                 <version>${project.plugin.license-maven-plugin.version}</version>
                 <configuration>
                     <addJavaLicenseAfterPackage>>false</addJavaLicenseAfterPackage>
+                    <failOnMissingHeader>true</failOnMissingHeader>
+                    <failOnNotUptodateHeader>true</failOnNotUptodateHeader>
                     <licenseName>apache_v2</licenseName>
                 </configuration>
                 <executions>
