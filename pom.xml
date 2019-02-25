@@ -93,18 +93,16 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>
                 <version>${project.plugin.license-maven-plugin.version}</version>
+                <configuration>
+                    <licenseName>apache_v2</licenseName>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>update-file-header</id>
+                        <id>default-check-file-header</id>
                         <goals>
-                            <goal>update-file-header</goal>
+                            <goal>check-file-header</goal>
                         </goals>
-                        <phase>process-resources</phase>
-                        <configuration>
-                            <canUpdateCopyright>true</canUpdateCopyright>
-                            <canUpdateDescription>true</canUpdateDescription>
-                            <licenseName>apache_v2</licenseName>
-                        </configuration>
+                        <phase>validate</phase>
                     </execution>
                 </executions>
             </plugin>
@@ -123,11 +121,10 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>format</id>
+                        <id>default-validate</id>
                         <goals>
-                            <goal>format</goal>
+                            <goal>validate</goal>
                         </goals>
-                        <phase>process-resources</phase>
                     </execution>
                 </executions>
             </plugin>
@@ -250,6 +247,7 @@
                                                 <artifactId>license-maven-plugin</artifactId>
                                                 <versionRange>[${project.plugin.license-maven-plugin.version},)</versionRange>
                                                 <goals>
+                                                    <goal>check-file-header</goal>
                                                     <goal>update-file-header</goal>
                                                 </goals>
                                             </pluginExecutionFilter>
