@@ -1,5 +1,3 @@
-package com.github.ingogriebsch.sample.spring.web.restcontroller;
-
 /*-
  * #%L
  * Spring Web simple REST controller sample
@@ -19,6 +17,7 @@ package com.github.ingogriebsch.sample.spring.web.restcontroller;
  * limitations under the License.
  * #L%
  */
+package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;

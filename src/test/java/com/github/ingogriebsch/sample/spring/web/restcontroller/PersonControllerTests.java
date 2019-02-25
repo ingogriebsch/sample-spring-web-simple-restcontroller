@@ -1,5 +1,3 @@
-package com.github.ingogriebsch.sample.spring.web.restcontroller;
-
 /*-
  * #%L
  * Spring Web simple REST controller sample
@@ -19,14 +17,11 @@ package com.github.ingogriebsch.sample.spring.web.restcontroller;
  * limitations under the License.
  * #L%
  */
+package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_DELETE;
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ALL;
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ONE;
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_INSERT;
-import static com.google.common.collect.Sets.newHashSet;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
+
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.hamcrest.Matchers.is;
@@ -42,6 +37,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_DELETE;
+import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ALL;
+import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ONE;
+import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_INSERT;
+import static com.google.common.collect.Sets.newHashSet;
 
 import java.util.Set;
 

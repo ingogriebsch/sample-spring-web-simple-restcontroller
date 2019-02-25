@@ -94,6 +94,7 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>${project.plugin.license-maven-plugin.version}</version>
                 <configuration>
+                    <addJavaLicenseAfterPackage>>false</addJavaLicenseAfterPackage>
                     <licenseName>apache_v2</licenseName>
                 </configuration>
                 <executions>
