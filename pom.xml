@@ -137,10 +137,11 @@
                 <version>2.1.0</version>
                 <executions>
                     <execution>
-                        <phase>process-resources</phase>
+                        <id>generate-readme</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
+                        <phase>process-resources</phase>
                     </execution>
                 </executions>
                 <configuration>
@@ -154,10 +155,11 @@
                 <version>1.0</version>
                 <executions>
                     <execution>
-                        <phase>prepare-package</phase>
+                        <id>rename-readme</id>
                         <goals>
                             <goal>copy</goal>
                         </goals>
+                        <phase>prepare-package</phase>
                         <configuration>
                             <sourceFile>${project.build.directory}/html/README.html</sourceFile>
                             <destinationFile>${project.build.outputDirectory}/static/index.html</destinationFile>
@@ -170,6 +172,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
 					<execution>
+                        <id>default-build-info</id>
 						<goals>
                             <goal>build-info</goal>
 						</goals>
