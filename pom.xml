@@ -89,6 +89,25 @@
 
 	<build>
 		<plugins>
+            <plugin><!-- https://www.mojohaus.org/license-maven-plugin -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>${project.plugin.license-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>update-file-header</id>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <canUpdateCopyright>true</canUpdateCopyright>
+                            <canUpdateDescription>true</canUpdateDescription>
+                            <licenseName>apache_v2</licenseName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin><!-- https://github.com/walokra/markdown-page-generator-plugin -->
                 <groupId>com.ruleoftech</groupId>
                 <artifactId>markdown-page-generator-plugin</artifactId>
@@ -141,25 +160,6 @@
 					</execution>
 				</executions>
 			</plugin>
-            <plugin><!-- https://www.mojohaus.org/license-maven-plugin -->
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>${project.plugin.license-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>update-file-header</id>
-                        <goals>
-                            <goal>update-file-header</goal>
-                        </goals>
-                        <phase>process-resources</phase>
-                        <configuration>
-                            <canUpdateCopyright>true</canUpdateCopyright>
-                            <canUpdateDescription>true</canUpdateDescription>
-                            <licenseName>apache_v2</licenseName>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 		</plugins>
 	</build>
 
