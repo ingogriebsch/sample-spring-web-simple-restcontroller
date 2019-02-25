@@ -52,8 +52,8 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.plugin.license-maven-plugin.version>1.17</project.plugin.license-maven-plugin.version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
@@ -132,6 +132,10 @@
                 <groupId>com.ruleoftech</groupId>
                 <artifactId>markdown-page-generator-plugin</artifactId>
                 <version>2.1.0</version>
+                <configuration>
+                    <inputDirectory>${project.basedir}</inputDirectory>
+                    <outputDirectory>${project.build.directory}/html</outputDirectory>
+                </configuration>
                 <executions>
                     <execution>
                         <id>generate-readme</id>
@@ -141,10 +145,6 @@
                         <phase>process-resources</phase>
                     </execution>
                 </executions>
-                <configuration>
-                    <inputDirectory>${project.basedir}</inputDirectory>
-                    <outputDirectory>${project.build.directory}/html</outputDirectory>
-                </configuration>
             </plugin>
             <plugin><!-- https://coderplus.github.io/copy-rename-maven-plugin -->
                 <groupId>com.coderplus.maven.plugins</groupId>
