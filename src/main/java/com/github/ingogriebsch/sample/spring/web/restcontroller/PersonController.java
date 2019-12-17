@@ -20,7 +20,7 @@
 package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
 import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.ResponseEntity.badRequest;
 import static org.springframework.http.ResponseEntity.notFound;
 import static org.springframework.http.ResponseEntity.ok;
@@ -51,17 +51,17 @@ public class PersonController {
     @NonNull
     private final PersonService personService;
 
-    @GetMapping(path = PATH_FIND_ALL, produces = APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(path = PATH_FIND_ALL, produces = APPLICATION_JSON_VALUE)
     public Set<Person> findAll() {
         return personService.findAll();
     }
 
-    @GetMapping(path = PATH_FIND_ONE, produces = APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(path = PATH_FIND_ONE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Person> findOne(@PathVariable String personId) {
         return personService.findOne(personId).map(ResponseEntity::ok).orElse(notFound().build());
     }
 
-    @PostMapping(path = PATH_INSERT, consumes = APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(path = PATH_INSERT, consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> insert(@RequestBody Person person) {
         return personService.insert(person) ? status(CREATED).build() : badRequest().build();
     }

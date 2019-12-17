@@ -35,7 +35,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -75,10 +75,10 @@ public class PersonControllerTests {
         Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
         given(personService.findOne(person.getId())).willReturn(of(person));
 
-        ResultActions actions = mockMvc.perform(get(PATH_FIND_ONE, person.getId()).accept(APPLICATION_JSON_UTF8));
+        ResultActions actions = mockMvc.perform(get(PATH_FIND_ONE, person.getId()).accept(APPLICATION_JSON));
         actions.andExpect(status().isOk());
 
-        actions.andExpect(content().contentType(APPLICATION_JSON_UTF8));
+        actions.andExpect(content().contentType(APPLICATION_JSON));
         actions.andExpect(jsonPath("$.id", is(person.getId())));
         actions.andExpect(jsonPath("$.name", is(person.getName())));
         actions.andExpect(jsonPath("$.age", is(person.getAge())));
@@ -92,7 +92,7 @@ public class PersonControllerTests {
         String id = randomAlphanumeric(8);
         given(personService.findOne(id)).willReturn(empty());
 
-        ResultActions actions = mockMvc.perform(get(PATH_FIND_ONE, id).accept(APPLICATION_JSON_UTF8));
+        ResultActions actions = mockMvc.perform(get(PATH_FIND_ONE, id).accept(APPLICATION_JSON));
         actions.andExpect(status().isNotFound());
         actions.andExpect(content().string(EMPTY));
 
@@ -106,9 +106,9 @@ public class PersonControllerTests {
             new Person(randomAlphanumeric(8), "Edina", 21), new Person(randomAlphanumeric(8), "Marcus", 37));
         given(personService.findAll()).willReturn(persons);
 
-        ResultActions actions = mockMvc.perform(get(PATH_FIND_ALL).accept(APPLICATION_JSON_UTF8));
+        ResultActions actions = mockMvc.perform(get(PATH_FIND_ALL).accept(APPLICATION_JSON));
         actions.andExpect(status().isOk());
-        actions.andExpect(content().contentType(APPLICATION_JSON_UTF8));
+        actions.andExpect(content().contentType(APPLICATION_JSON));
         actions.andExpect(jsonPath("$", not(Matchers.empty())));
 
         verify(personService, times(1)).findAll();
@@ -119,9 +119,9 @@ public class PersonControllerTests {
     public void findAll_should_return_status_ok_but_no_resources_if_not_available() throws Exception {
         given(personService.findAll()).willReturn(newHashSet());
 
-        ResultActions actions = mockMvc.perform(get(PATH_FIND_ALL).accept(APPLICATION_JSON_UTF8));
+        ResultActions actions = mockMvc.perform(get(PATH_FIND_ALL).accept(APPLICATION_JSON));
         actions.andExpect(status().isOk());
-        actions.andExpect(content().contentType(APPLICATION_JSON_UTF8));
+        actions.andExpect(content().contentType(APPLICATION_JSON));
         actions.andExpect(jsonPath("$", Matchers.empty()));
 
         verify(personService, times(1)).findAll();
@@ -133,8 +133,8 @@ public class PersonControllerTests {
         Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
         given(personService.insert(person)).willReturn(true);
 
-        ResultActions actions = mockMvc
-            .perform(post(PATH_INSERT).contentType(APPLICATION_JSON_UTF8).content(objectMapper.writeValueAsString(person)));
+        ResultActions actions =
+            mockMvc.perform(post(PATH_INSERT).contentType(APPLICATION_JSON).content(objectMapper.writeValueAsString(person)));
         actions.andExpect(status().isCreated());
         actions.andExpect(content().string(EMPTY));
 
@@ -147,8 +147,8 @@ public class PersonControllerTests {
         Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
         given(personService.insert(person)).willReturn(false);
 
-        ResultActions actions = mockMvc
-            .perform(post(PATH_INSERT).contentType(APPLICATION_JSON_UTF8).content(objectMapper.writeValueAsString(person)));
+        ResultActions actions =
+            mockMvc.perform(post(PATH_INSERT).contentType(APPLICATION_JSON).content(objectMapper.writeValueAsString(person)));
         actions.andExpect(status().isBadRequest());
         actions.andExpect(content().string(EMPTY));
 
