@@ -65,12 +65,12 @@ public class PersonServiceTests {
         assertThat(optional.isPresent()).isFalse();
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void findOne_should_throw_exception_if_called_with_null() throws Exception {
         new PersonService().findOne(null);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void delete_should_throw_exception_if_called_with_null() throws Exception {
         new PersonService().delete(null);
     }
@@ -122,7 +122,7 @@ public class PersonServiceTests {
         assertThat(personService.findAll().size()).isEqualTo(persons.size());
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void insert_should_throw_exception_if_called_with_null() throws Exception {
         new PersonService().insert(null);
     }
