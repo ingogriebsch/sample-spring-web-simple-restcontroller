@@ -31,7 +31,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-public class PersonServiceTests {
+public class PersonServiceTest {
 
     @Test
     public void findAll_should_return_available_persons() throws Exception {

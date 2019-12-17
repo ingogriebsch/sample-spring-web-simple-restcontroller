@@ -59,7 +59,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(PersonController.class)
-public class PersonControllerTests {
+public class PersonControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
