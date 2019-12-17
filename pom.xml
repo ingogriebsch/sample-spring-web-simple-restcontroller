@@ -224,13 +224,7 @@
 
 	<profiles>
 	    <profile>
-	        <id>travis</id>
-			<activation>
-				<property>
-					<name>env.TRAVIS</name>
-					<value>true</value>
-				</property>
-			</activation>
+	        <id>generate-coverage-report</id>
 			<build>
 				<plugins>
 		            <plugin><!-- https://www.eclemma.org/jacoco/trunk/doc/maven.html -->

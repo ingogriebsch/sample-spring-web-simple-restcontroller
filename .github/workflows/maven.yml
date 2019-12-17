@@ -11,4 +11,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Build project with Maven
-      run: mvn -B verify
+      run: mvn -B -Pgenerate-coverage-report verify
+    - name: 
+      uses: codecov/codecov-action@v1
