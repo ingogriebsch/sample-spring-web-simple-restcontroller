@@ -185,7 +185,7 @@
             <plugin><!-- https://coderplus.github.io/copy-rename-maven-plugin -->
                 <groupId>com.coderplus.maven.plugins</groupId>
                 <artifactId>copy-rename-maven-plugin</artifactId>
-                <version>1.0</version>
+                <version>1.0.1</version>
                 <executions>
                     <execution>
                         <id>rename-readme</id>
