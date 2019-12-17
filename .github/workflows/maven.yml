@@ -12,7 +12,11 @@ jobs:
         java-version: 1.8
     - name: Build project with Maven
       run: mvn -B -Pgenerate-coverage-report verify
-    - name: Upload Codecov reports
+    - name: Upload Codecov report
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload Coveralls report
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
