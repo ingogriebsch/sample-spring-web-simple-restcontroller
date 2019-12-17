@@ -1,5 +1,5 @@
 # Spring Web simple REST controller sample
-[![Build Status](https://travis-ci.org/ingogriebsch/sample-spring-web-simple-restcontroller.svg?branch=master)](https://travis-ci.org/ingogriebsch/sample-spring-web-simple-restcontroller)
+[![Actions Status](https://github.com/ingogriebsch/sample-spring-web-simple-restcontroller/workflows/verify%20project/badge.svg)](https://github.com/ingogriebsch/sample-spring-web-simple-restcontroller/actions)
 [![Codecov Status](https://codecov.io/gh/ingogriebsch/sample-spring-web-simple-restcontroller/branch/master/graph/badge.svg)](https://codecov.io/gh/ingogriebsch/sample-spring-web-simple-restcontroller)
 [![Codacy Status](https://api.codacy.com/project/badge/Grade/19e9eecec72846cfbff047bed2dff18b)](https://app.codacy.com/app/ingo.griebsch/sample-spring-web-simple-restcontroller?utm_source=github.com&utm_medium=referral&utm_content=ingogriebsch/sample-spring-web-simple-restcontroller&utm_campaign=Badge_Grade_Dashboard)
 [![DepShield Status](https://depshield.sonatype.org/badges/ingogriebsch/sample-spring-web-simple-restcontroller/depshield.svg)](https://depshield.github.io)
