@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>28.1-jre</version>
+			<version>28.2-jre</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -164,7 +164,7 @@
             <plugin><!-- https://github.com/walokra/markdown-page-generator-plugin -->
                 <groupId>com.ruleoftech</groupId>
                 <artifactId>markdown-page-generator-plugin</artifactId>
-                <version>2.1.0</version>
+                <version>2.2.0</version>
                 <configuration>
                     <inputDirectory>${project.basedir}</inputDirectory>
                     <outputDirectory>${project.build.directory}/html</outputDirectory>
