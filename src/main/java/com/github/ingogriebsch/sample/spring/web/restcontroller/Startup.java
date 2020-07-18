@@ -22,12 +22,11 @@ package com.github.ingogriebsch.sample.spring.web.restcontroller;
 import static com.google.common.collect.Sets.newHashSet;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
-
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
