@@ -22,7 +22,6 @@ import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonCon
 import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_DELETE;
 import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ONE;
 import static com.google.common.collect.Sets.newHashSet;
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
@@ -52,6 +51,8 @@ import org.springframework.test.web.servlet.ResultActions;
 @WebMvcTest(PersonController.class)
 class PersonControllerTest {
 
+    private static final IdGenerator idGenerator = new IdGenerator();
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -63,7 +64,7 @@ class PersonControllerTest {
 
     @Test
     void findOne_shoud_return_status_ok_and_person_resource_if_available() throws Exception {
-        Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
+        Person person = new Person(idGenerator.next(), "Kamil", 32);
         given(personService.findOne(person.getId())).willReturn(of(person));
 
         ResultActions actions = mockMvc.perform(get(BASE_PATH + PATH_FIND_ONE, person.getId()).accept(APPLICATION_JSON));
@@ -80,7 +81,7 @@ class PersonControllerTest {
 
     @Test
     void findOne_should_return_status_not_found_if_not_available() throws Exception {
-        String id = randomAlphanumeric(8);
+        String id = idGenerator.next();
         given(personService.findOne(id)).willReturn(empty());
 
         ResultActions actions = mockMvc.perform(get(BASE_PATH + PATH_FIND_ONE, id).accept(APPLICATION_JSON));
@@ -93,8 +94,8 @@ class PersonControllerTest {
 
     @Test
     void findAll_should_return_status_ok_and_person_resources_if_available() throws Exception {
-        Set<Person> persons = newHashSet(new Person(randomAlphanumeric(8), "Ingo", 44),
-            new Person(randomAlphanumeric(8), "Edina", 21), new Person(randomAlphanumeric(8), "Marcus", 37));
+        Set<Person> persons = newHashSet(new Person(idGenerator.next(), "Ingo", 44), new Person(idGenerator.next(), "Edina", 21),
+            new Person(idGenerator.next(), "Marcus", 37));
         given(personService.findAll()).willReturn(persons);
 
         ResultActions actions = mockMvc.perform(get(BASE_PATH).accept(APPLICATION_JSON));
@@ -121,7 +122,7 @@ class PersonControllerTest {
 
     @Test
     void insert_should_return_status_created_if_not_known() throws Exception {
-        Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
+        Person person = new Person(idGenerator.next(), "Kamil", 32);
         given(personService.insert(person)).willReturn(true);
 
         ResultActions actions =
@@ -135,7 +136,7 @@ class PersonControllerTest {
 
     @Test
     void insert_should_return_status_bad_request_if_already_known() throws Exception {
-        Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
+        Person person = new Person(idGenerator.next(), "Kamil", 32);
         given(personService.insert(person)).willReturn(false);
 
         ResultActions actions =
@@ -149,7 +150,7 @@ class PersonControllerTest {
 
     @Test
     void delete_should_return_status_ok_if_known() throws Exception {
-        String id = randomAlphanumeric(8);
+        String id = idGenerator.next();
         given(personService.delete(id)).willReturn(true);
 
         ResultActions actions = mockMvc.perform(delete(BASE_PATH + PATH_DELETE, id));
@@ -162,7 +163,7 @@ class PersonControllerTest {
 
     @Test
     void delete_should_return_not_found_if_not_known() throws Exception {
-        String id = randomAlphanumeric(8);
+        String id = idGenerator.next();
         given(personService.delete(id)).willReturn(false);
 
         ResultActions actions = mockMvc.perform(delete(BASE_PATH + PATH_DELETE, id));
