@@ -41,8 +41,10 @@
         </developer>
     </developers>
 
-	<scm>
-        <url>${project.url}</url>
+    <scm>
+        <connection>scm:git:git://github.com/ingogriebsch/spring-web-simple-restcontroller.git</connection>
+        <developerConnection>scm:git:git://github.com/ingogriebsch/spring-web-simple-restcontroller.git</developerConnection>
+        <url>https://github.com/ingogriebsch/spring-web-simple-restcontroller.git</url>
     </scm>
 	<issueManagement>
 	    <url>${project.url}/issues</url>
