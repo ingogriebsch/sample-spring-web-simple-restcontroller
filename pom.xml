@@ -54,8 +54,8 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.plugin.copy-rename-maven-plugin.version>1.0.1</project.plugin.copy-rename-maven-plugin.version>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.plugin.copy-rename-maven-plugin.version>1.0.1</project.plugin.copy-rename-maven-plugin.version>
 	</properties>
 
 	<dependencies>
