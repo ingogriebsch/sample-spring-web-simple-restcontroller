@@ -10,8 +10,8 @@
 		<!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.github.ingogriebsch.samples</groupId>
-	<artifactId>spring-web-simple-restcontroller</artifactId>
+	<groupId>de.ingogriebsch.samples</groupId>
+	<artifactId>sample-spring-web-simple-restcontroller</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
