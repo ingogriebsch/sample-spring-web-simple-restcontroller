@@ -21,16 +21,17 @@ import static com.google.common.collect.Sets.newHashSet;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Optional;
 import java.util.Set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class PersonServiceTest {
+class PersonServiceTest {
 
     @Test
-    public void findAll_should_return_available_persons() throws Exception {
+    void findAll_should_return_available_persons() throws Exception {
         PersonService personService = new PersonService();
         Set<Person> persons = newHashSet(person(), person(), person());
         persons.stream().forEach(p -> personService.insert(p));
@@ -38,7 +39,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void findOne_should_return_matching_person_if_available() throws Exception {
+    void findOne_should_return_matching_person_if_available() throws Exception {
         PersonService personService = new PersonService();
         Set<Person> persons = newHashSet(person(), person(), person());
         persons.stream().forEach(p -> personService.insert(p));
@@ -51,7 +52,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void findOne_should_return_empty_optional_if_not_available() throws Exception {
+    void findOne_should_return_empty_optional_if_not_available() throws Exception {
         PersonService personService = new PersonService();
         Set<Person> persons = newHashSet(person(), person(), person());
         persons.stream().forEach(p -> personService.insert(p));
@@ -61,18 +62,18 @@ public class PersonServiceTest {
         assertThat(optional.isPresent()).isFalse();
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void findOne_should_throw_exception_if_called_with_null() throws Exception {
-        new PersonService().findOne(null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void delete_should_throw_exception_if_called_with_null() throws Exception {
-        new PersonService().delete(null);
+    @Test
+    void findOne_should_throw_exception_if_called_with_null() throws Exception {
+        assertThatThrownBy(() -> new PersonService().findOne(null)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    public void delete_should_return_true_if_person_is_known() throws Exception {
+    void delete_should_throw_exception_if_called_with_null() throws Exception {
+        assertThatThrownBy(() -> new PersonService().delete(null)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void delete_should_return_true_if_person_is_known() throws Exception {
         PersonService personService = new PersonService();
         Set<Person> persons = newHashSet(person(), person(), person());
         persons.stream().forEach(p -> personService.insert(p));
@@ -86,7 +87,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void delete_should_return_false_if_person_is_not_known() throws Exception {
+    void delete_should_return_false_if_person_is_not_known() throws Exception {
         PersonService personService = new PersonService();
         Set<Person> persons = newHashSet(person(), person(), person());
         persons.stream().forEach(p -> personService.insert(p));
@@ -95,7 +96,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void insert_should_return_true_if_person_is_not_known_before() throws Exception {
+    void insert_should_return_true_if_person_is_not_known_before() throws Exception {
         PersonService personService = new PersonService();
         Set<Person> persons = newHashSet(person(), person(), person());
         persons.stream().forEach(p -> personService.insert(p));
@@ -109,7 +110,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void insert_should_return_false_if_person_is_already_known() throws Exception {
+    void insert_should_return_false_if_person_is_already_known() throws Exception {
         PersonService personService = new PersonService();
         Set<Person> persons = newHashSet(person(), person(), person());
         persons.stream().forEach(p -> personService.insert(p));
@@ -118,9 +119,9 @@ public class PersonServiceTest {
         assertThat(personService.findAll().size()).isEqualTo(persons.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void insert_should_throw_exception_if_called_with_null() throws Exception {
-        new PersonService().insert(null);
+    @Test
+    void insert_should_throw_exception_if_called_with_null() throws Exception {
+        assertThatThrownBy(() -> new PersonService().insert(null)).isInstanceOf(IllegalArgumentException.class);
     }
 
     private static Person person() {

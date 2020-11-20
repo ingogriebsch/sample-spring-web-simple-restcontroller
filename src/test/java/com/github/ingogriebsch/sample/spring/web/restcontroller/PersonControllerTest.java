@@ -43,18 +43,15 @@ import java.util.Set;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
-@RunWith(SpringRunner.class)
 @WebMvcTest(PersonController.class)
-public class PersonControllerTest {
+class PersonControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -66,7 +63,7 @@ public class PersonControllerTest {
     private PersonService personService;
 
     @Test
-    public void findOne_shoud_return_status_ok_and_person_resource_if_available() throws Exception {
+    void findOne_shoud_return_status_ok_and_person_resource_if_available() throws Exception {
         Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
         given(personService.findOne(person.getId())).willReturn(of(person));
 
@@ -83,7 +80,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    public void findOne_should_return_status_not_found_if_not_available() throws Exception {
+    void findOne_should_return_status_not_found_if_not_available() throws Exception {
         String id = randomAlphanumeric(8);
         given(personService.findOne(id)).willReturn(empty());
 
@@ -96,7 +93,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    public void findAll_should_return_status_ok_and_person_resources_if_available() throws Exception {
+    void findAll_should_return_status_ok_and_person_resources_if_available() throws Exception {
         Set<Person> persons = newHashSet(new Person(randomAlphanumeric(8), "Ingo", 44),
             new Person(randomAlphanumeric(8), "Edina", 21), new Person(randomAlphanumeric(8), "Marcus", 37));
         given(personService.findAll()).willReturn(persons);
@@ -111,7 +108,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    public void findAll_should_return_status_ok_but_no_resources_if_not_available() throws Exception {
+    void findAll_should_return_status_ok_but_no_resources_if_not_available() throws Exception {
         given(personService.findAll()).willReturn(newHashSet());
 
         ResultActions actions = mockMvc.perform(get(PATH_FIND_ALL).accept(APPLICATION_JSON));
@@ -124,7 +121,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    public void insert_should_return_status_created_if_not_known() throws Exception {
+    void insert_should_return_status_created_if_not_known() throws Exception {
         Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
         given(personService.insert(person)).willReturn(true);
 
@@ -138,7 +135,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    public void insert_should_return_status_bad_request_if_already_known() throws Exception {
+    void insert_should_return_status_bad_request_if_already_known() throws Exception {
         Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
         given(personService.insert(person)).willReturn(false);
 
@@ -152,7 +149,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    public void delete_should_return_status_ok_if_known() throws Exception {
+    void delete_should_return_status_ok_if_known() throws Exception {
         String id = randomAlphanumeric(8);
         given(personService.delete(id)).willReturn(true);
 
@@ -165,7 +162,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    public void delete_should_return_not_found_if_not_known() throws Exception {
+    void delete_should_return_not_found_if_not_known() throws Exception {
         String id = randomAlphanumeric(8);
         given(personService.delete(id)).willReturn(false);
 

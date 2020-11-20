@@ -17,16 +17,14 @@ package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
 import static com.github.ingogriebsch.sample.spring.web.restcontroller.Application.main;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@RunWith(SpringRunner.class)
-public class ApplicationTest {
+@SpringBootTest
+class ApplicationTest {
 
     @Test
-    public void main_should_load_context() {
+    void main_should_load_context() {
         main(new String[] { "--server.port=0" });
     }
-
 }
