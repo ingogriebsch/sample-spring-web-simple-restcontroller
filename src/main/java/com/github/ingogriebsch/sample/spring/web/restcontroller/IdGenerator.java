@@ -25,6 +25,6 @@ class IdGenerator {
     private static final AtomicLong generator = new AtomicLong(1L);
 
     String next() {
-        return String.valueOf(generator.get());
+        return String.valueOf(generator.getAndAdd(1L));
     }
 }
