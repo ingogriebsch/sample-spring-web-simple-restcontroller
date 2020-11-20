@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-class Startup implements CommandLineRunner {
+class PersonImporter implements CommandLineRunner {
 
     @NonNull
     private final PersonService personService;
@@ -39,7 +39,7 @@ class Startup implements CommandLineRunner {
 
     private void insert(Person personInsert) {
         if (personService.insert(personInsert)) {
-            log.info("Inserting person '{}'...", personInsert);
+            log.info("Import person '{}'...", personInsert);
         }
     }
 
