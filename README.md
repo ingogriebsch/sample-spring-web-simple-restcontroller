@@ -3,7 +3,6 @@
 [![Codecov Status](https://codecov.io/gh/ingogriebsch/sample-spring-web-simple-restcontroller/branch/master/graph/badge.svg)](https://codecov.io/gh/ingogriebsch/sample-spring-web-simple-restcontroller)
 [![Codacy Status](https://api.codacy.com/project/badge/Grade/19e9eecec72846cfbff047bed2dff18b)](https://app.codacy.com/app/ingo.griebsch/sample-spring-web-simple-restcontroller?utm_source=github.com&utm_medium=referral&utm_content=ingogriebsch/sample-spring-web-simple-restcontroller&utm_campaign=Badge_Grade_Dashboard)
 [![DepShield Status](https://depshield.sonatype.org/badges/ingogriebsch/sample-spring-web-simple-restcontroller/depshield.svg)](https://depshield.github.io)
-[![Dependatbot Status](https://api.dependabot.com/badges/status?host=github&repo=ingogriebsch/sample-spring-web-simple-restcontroller)](https://app.dependabot.com/accounts/ingogriebsch/repos/152552113)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This sample shows how to implement a simple REST controller with Spring Web (and Spring Boot).
