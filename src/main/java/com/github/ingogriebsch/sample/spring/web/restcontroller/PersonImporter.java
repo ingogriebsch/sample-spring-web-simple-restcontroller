@@ -16,7 +16,6 @@
 package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
 import static com.google.common.collect.Sets.newHashSet;
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +30,8 @@ class PersonImporter implements CommandLineRunner {
 
     @NonNull
     private final PersonService personService;
+    @NonNull
+    private final IdGenerator idGenerator;
 
     @Override
     public void run(String... args) throws Exception {
@@ -43,7 +44,7 @@ class PersonImporter implements CommandLineRunner {
         }
     }
 
-    private static Person person(String name, Integer age) {
-        return new Person(randomAlphanumeric(8), name, age);
+    private Person person(String name, Integer age) {
+        return new Person(idGenerator.next(), name, age);
     }
 }
