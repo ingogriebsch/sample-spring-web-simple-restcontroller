@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-public class PersonController {
+class PersonController {
 
     static final String PATH_FIND_ONE = "/persons/{personId}";
     static final String PATH_FIND_ALL = "/persons";
@@ -47,22 +47,22 @@ public class PersonController {
     private final PersonService personService;
 
     @GetMapping(path = PATH_FIND_ALL, produces = APPLICATION_JSON_VALUE)
-    public Set<Person> findAll() {
+    Set<Person> findAll() {
         return personService.findAll();
     }
 
     @GetMapping(path = PATH_FIND_ONE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Person> findOne(@PathVariable String personId) {
+    ResponseEntity<Person> findOne(@PathVariable String personId) {
         return personService.findOne(personId).map(ResponseEntity::ok).orElse(notFound().build());
     }
 
     @PostMapping(path = PATH_INSERT, consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> insert(@RequestBody Person person) {
+    ResponseEntity<Void> insert(@RequestBody Person person) {
         return personService.insert(person) ? status(CREATED).build() : badRequest().build();
     }
 
     @DeleteMapping(path = PATH_DELETE)
-    public ResponseEntity<Void> delete(@PathVariable String personId) {
+    ResponseEntity<Void> delete(@PathVariable String personId) {
         return personService.delete(personId) ? ok().build() : notFound().build();
     }
 }

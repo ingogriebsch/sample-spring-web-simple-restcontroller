@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class Startup implements CommandLineRunner {
+class Startup implements CommandLineRunner {
 
     @NonNull
     private final PersonService personService;

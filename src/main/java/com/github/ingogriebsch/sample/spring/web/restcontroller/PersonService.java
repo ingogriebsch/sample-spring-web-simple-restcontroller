@@ -23,19 +23,19 @@ import lombok.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonService {
+class PersonService {
 
     private final Set<Person> persons = new HashSet<>();
 
-    public Set<Person> findAll() {
+    Set<Person> findAll() {
         return persons;
     }
 
-    public Optional<Person> findOne(@NonNull String id) {
+    Optional<Person> findOne(@NonNull String id) {
         return persons.stream().filter(p -> p.getId().equals(id)).limit(1).findAny();
     }
 
-    public boolean insert(@NonNull Person person) {
+    boolean insert(@NonNull Person person) {
         for (Person p : persons) {
             if (p.getId().equals(person.getId())) {
                 return false;
@@ -44,7 +44,7 @@ public class PersonService {
         return persons.add(person);
     }
 
-    public boolean delete(@NonNull String id) {
+    boolean delete(@NonNull String id) {
         return persons.removeIf(p -> p.getId().equals(id));
     }
 }
