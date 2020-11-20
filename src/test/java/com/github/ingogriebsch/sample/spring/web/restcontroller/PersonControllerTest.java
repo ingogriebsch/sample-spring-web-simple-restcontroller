@@ -68,12 +68,11 @@ class PersonControllerTest {
         given(personService.findOne(person.getId())).willReturn(of(person));
 
         ResultActions actions = mockMvc.perform(get(BASE_PATH + PATH_FIND_ONE, person.getId()).accept(APPLICATION_JSON));
-        actions.andExpect(status().isOk());
-
-        actions.andExpect(content().contentType(APPLICATION_JSON));
-        actions.andExpect(jsonPath("$.id", is(person.getId())));
-        actions.andExpect(jsonPath("$.name", is(person.getName())));
-        actions.andExpect(jsonPath("$.age", is(person.getAge())));
+        actions.andExpect(status().isOk()) //
+            .andExpect(content().contentType(APPLICATION_JSON)) //
+            .andExpect(jsonPath("$.id", is(person.getId()))) //
+            .andExpect(jsonPath("$.name", is(person.getName()))) //
+            .andExpect(jsonPath("$.age", is(person.getAge())));
 
         verify(personService, times(1)).findOne(person.getId());
         verifyNoMoreInteractions(personService);
@@ -84,9 +83,11 @@ class PersonControllerTest {
         String id = idGenerator.next();
         given(personService.findOne(id)).willReturn(empty());
 
-        ResultActions actions = mockMvc.perform(get(BASE_PATH + PATH_FIND_ONE, id).accept(APPLICATION_JSON));
-        actions.andExpect(status().isNotFound());
-        actions.andExpect(content().string(EMPTY));
+        ResultActions actions = mockMvc.perform(get(BASE_PATH + PATH_FIND_ONE, id) //
+            .accept(APPLICATION_JSON));
+
+        actions.andExpect(status().isNotFound()) //
+            .andExpect(content().string(EMPTY));
 
         verify(personService, times(1)).findOne(id);
         verifyNoMoreInteractions(personService);
@@ -98,10 +99,12 @@ class PersonControllerTest {
             new Person(idGenerator.next(), "Marcus", 37));
         given(personService.findAll()).willReturn(persons);
 
-        ResultActions actions = mockMvc.perform(get(BASE_PATH).accept(APPLICATION_JSON));
-        actions.andExpect(status().isOk());
-        actions.andExpect(content().contentType(APPLICATION_JSON));
-        actions.andExpect(jsonPath("$", not(Matchers.empty())));
+        ResultActions actions = mockMvc.perform(get(BASE_PATH) //
+            .accept(APPLICATION_JSON));
+
+        actions.andExpect(status().isOk()) //
+            .andExpect(content().contentType(APPLICATION_JSON)) //
+            .andExpect(jsonPath("$", not(Matchers.empty())));
 
         verify(personService, times(1)).findAll();
         verifyNoMoreInteractions(personService);
@@ -111,10 +114,12 @@ class PersonControllerTest {
     void findAll_should_return_status_ok_but_no_resources_if_not_available() throws Exception {
         given(personService.findAll()).willReturn(newHashSet());
 
-        ResultActions actions = mockMvc.perform(get(BASE_PATH).accept(APPLICATION_JSON));
-        actions.andExpect(status().isOk());
-        actions.andExpect(content().contentType(APPLICATION_JSON));
-        actions.andExpect(jsonPath("$", Matchers.empty()));
+        ResultActions actions = mockMvc.perform(get(BASE_PATH) //
+            .accept(APPLICATION_JSON));
+
+        actions.andExpect(status().isOk()) //
+            .andExpect(content().contentType(APPLICATION_JSON)) //
+            .andExpect(jsonPath("$", Matchers.empty()));
 
         verify(personService, times(1)).findAll();
         verifyNoMoreInteractions(personService);
@@ -125,10 +130,12 @@ class PersonControllerTest {
         Person person = new Person(idGenerator.next(), "Kamil", 32);
         given(personService.insert(person)).willReturn(true);
 
-        ResultActions actions =
-            mockMvc.perform(post(BASE_PATH).contentType(APPLICATION_JSON).content(objectMapper.writeValueAsString(person)));
-        actions.andExpect(status().isCreated());
-        actions.andExpect(content().string(EMPTY));
+        ResultActions actions = mockMvc.perform(post(BASE_PATH) //
+            .contentType(APPLICATION_JSON) //
+            .content(objectMapper.writeValueAsString(person)));
+
+        actions.andExpect(status().isCreated()) //
+            .andExpect(content().string(EMPTY));
 
         verify(personService, times(1)).insert(person);
         verifyNoMoreInteractions(personService);
@@ -139,10 +146,12 @@ class PersonControllerTest {
         Person person = new Person(idGenerator.next(), "Kamil", 32);
         given(personService.insert(person)).willReturn(false);
 
-        ResultActions actions =
-            mockMvc.perform(post(BASE_PATH).contentType(APPLICATION_JSON).content(objectMapper.writeValueAsString(person)));
-        actions.andExpect(status().isBadRequest());
-        actions.andExpect(content().string(EMPTY));
+        ResultActions actions = mockMvc.perform(post(BASE_PATH) //
+            .contentType(APPLICATION_JSON) //
+            .content(objectMapper.writeValueAsString(person)));
+
+        actions.andExpect(status().isBadRequest()) //
+            .andExpect(content().string(EMPTY));
 
         verify(personService, times(1)).insert(person);
         verifyNoMoreInteractions(personService);
@@ -154,8 +163,9 @@ class PersonControllerTest {
         given(personService.delete(id)).willReturn(true);
 
         ResultActions actions = mockMvc.perform(delete(BASE_PATH + PATH_DELETE, id));
-        actions.andExpect(status().isOk());
-        actions.andExpect(content().string(EMPTY));
+
+        actions.andExpect(status().isOk()) //
+            .andExpect(content().string(EMPTY));
 
         verify(personService, times(1)).delete(id);
         verifyNoMoreInteractions(personService);
@@ -167,11 +177,11 @@ class PersonControllerTest {
         given(personService.delete(id)).willReturn(false);
 
         ResultActions actions = mockMvc.perform(delete(BASE_PATH + PATH_DELETE, id));
-        actions.andExpect(status().isNotFound());
-        actions.andExpect(content().string(EMPTY));
+
+        actions.andExpect(status().isNotFound()) //
+            .andExpect(content().string(EMPTY));
 
         verify(personService, times(1)).delete(id);
         verifyNoMoreInteractions(personService);
     }
-
 }
