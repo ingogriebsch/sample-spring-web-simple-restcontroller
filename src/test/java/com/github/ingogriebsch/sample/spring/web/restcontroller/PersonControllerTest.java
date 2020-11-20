@@ -18,10 +18,9 @@ package com.github.ingogriebsch.sample.spring.web.restcontroller;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 
+import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.BASE_PATH;
 import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_DELETE;
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ALL;
 import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ONE;
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_INSERT;
 import static com.google.common.collect.Sets.newHashSet;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
@@ -67,7 +66,7 @@ class PersonControllerTest {
         Person person = new Person(randomAlphanumeric(8), "Kamil", 32);
         given(personService.findOne(person.getId())).willReturn(of(person));
 
-        ResultActions actions = mockMvc.perform(get(PATH_FIND_ONE, person.getId()).accept(APPLICATION_JSON));
+        ResultActions actions = mockMvc.perform(get(BASE_PATH + PATH_FIND_ONE, person.getId()).accept(APPLICATION_JSON));
         actions.andExpect(status().isOk());
 
         actions.andExpect(content().contentType(APPLICATION_JSON));
@@ -84,7 +83,7 @@ class PersonControllerTest {
         String id = randomAlphanumeric(8);
         given(personService.findOne(id)).willReturn(empty());
 
-        ResultActions actions = mockMvc.perform(get(PATH_FIND_ONE, id).accept(APPLICATION_JSON));
+        ResultActions actions = mockMvc.perform(get(BASE_PATH + PATH_FIND_ONE, id).accept(APPLICATION_JSON));
         actions.andExpect(status().isNotFound());
         actions.andExpect(content().string(EMPTY));
 
@@ -98,7 +97,7 @@ class PersonControllerTest {
             new Person(randomAlphanumeric(8), "Edina", 21), new Person(randomAlphanumeric(8), "Marcus", 37));
         given(personService.findAll()).willReturn(persons);
 
-        ResultActions actions = mockMvc.perform(get(PATH_FIND_ALL).accept(APPLICATION_JSON));
+        ResultActions actions = mockMvc.perform(get(BASE_PATH).accept(APPLICATION_JSON));
         actions.andExpect(status().isOk());
         actions.andExpect(content().contentType(APPLICATION_JSON));
         actions.andExpect(jsonPath("$", not(Matchers.empty())));
@@ -111,7 +110,7 @@ class PersonControllerTest {
     void findAll_should_return_status_ok_but_no_resources_if_not_available() throws Exception {
         given(personService.findAll()).willReturn(newHashSet());
 
-        ResultActions actions = mockMvc.perform(get(PATH_FIND_ALL).accept(APPLICATION_JSON));
+        ResultActions actions = mockMvc.perform(get(BASE_PATH).accept(APPLICATION_JSON));
         actions.andExpect(status().isOk());
         actions.andExpect(content().contentType(APPLICATION_JSON));
         actions.andExpect(jsonPath("$", Matchers.empty()));
@@ -126,7 +125,7 @@ class PersonControllerTest {
         given(personService.insert(person)).willReturn(true);
 
         ResultActions actions =
-            mockMvc.perform(post(PATH_INSERT).contentType(APPLICATION_JSON).content(objectMapper.writeValueAsString(person)));
+            mockMvc.perform(post(BASE_PATH).contentType(APPLICATION_JSON).content(objectMapper.writeValueAsString(person)));
         actions.andExpect(status().isCreated());
         actions.andExpect(content().string(EMPTY));
 
@@ -140,7 +139,7 @@ class PersonControllerTest {
         given(personService.insert(person)).willReturn(false);
 
         ResultActions actions =
-            mockMvc.perform(post(PATH_INSERT).contentType(APPLICATION_JSON).content(objectMapper.writeValueAsString(person)));
+            mockMvc.perform(post(BASE_PATH).contentType(APPLICATION_JSON).content(objectMapper.writeValueAsString(person)));
         actions.andExpect(status().isBadRequest());
         actions.andExpect(content().string(EMPTY));
 
@@ -153,7 +152,7 @@ class PersonControllerTest {
         String id = randomAlphanumeric(8);
         given(personService.delete(id)).willReturn(true);
 
-        ResultActions actions = mockMvc.perform(delete(PATH_DELETE, id));
+        ResultActions actions = mockMvc.perform(delete(BASE_PATH + PATH_DELETE, id));
         actions.andExpect(status().isOk());
         actions.andExpect(content().string(EMPTY));
 
@@ -166,7 +165,7 @@ class PersonControllerTest {
         String id = randomAlphanumeric(8);
         given(personService.delete(id)).willReturn(false);
 
-        ResultActions actions = mockMvc.perform(delete(PATH_DELETE, id));
+        ResultActions actions = mockMvc.perform(delete(BASE_PATH + PATH_DELETE, id));
         actions.andExpect(status().isNotFound());
         actions.andExpect(content().string(EMPTY));
 
