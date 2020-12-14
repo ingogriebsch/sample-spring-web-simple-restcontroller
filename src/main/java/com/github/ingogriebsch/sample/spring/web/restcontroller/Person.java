@@ -15,16 +15,12 @@
  */
 package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @Data
-@NoArgsConstructor
 class Person {
 
-    private String id;
-    private String name;
-    private Integer age;
+    private final String id;
+    private final String name;
+    private final Integer age;
 }
