@@ -8,6 +8,7 @@
 This sample shows how to implement a simple REST controller with Spring Web (and Spring Boot).
 
 ## How to build and run
+If you want to see the implementation in action, simply follow these steps:
 
 *   First, make sure that you have Java 8 or later installed and an established Internet connection.
 *   Then, clone this Git repository an `cd` into folder `spring-web-simple-restcontroller`. 
