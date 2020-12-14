@@ -15,6 +15,8 @@
  */
 package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
+import static java.lang.String.format;
+
 import static com.google.common.collect.Sets.newHashSet;
 
 import java.util.Set;
@@ -39,7 +41,7 @@ class PersonImporter implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Set<Person> persons = newHashSet(person("Ingo", 44), person("Marcel", 33), person("Sophia", 21));
         persons.forEach(p -> insert(p));
-        log.info(String.format("%d persons successfully imported and ready to be accessed!", persons.size()));
+        log.info(format("%d persons successfully imported and ready to be accessed!", persons.size()));
     }
 
     private void insert(Person personInsert) {
