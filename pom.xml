@@ -35,19 +35,19 @@
 		<developer>
             <id>ingogriebsch</id>
 			<name>Ingo Griebsch</name>
-			<email>ingogriebsch@gmx.de</email>
+			<email>ingo.griebsch@gmx.de</email>
 			<url>https://ingogriebsch.de</url>
 			<timezone>Europe/Berlin</timezone>
         </developer>
     </developers>
 
 	<scm>
-        <connection>scm:git:git://github.com/ingogriebsch/spring-web-simple-restcontroller.git</connection>
-        <developerConnection>scm:git:git://github.com/ingogriebsch/spring-web-simple-restcontroller.git</developerConnection>
-        <url>https://github.com/ingogriebsch/spring-web-simple-restcontroller.git</url>
+        <connection>scm:git:git://github.com/ingogriebsch/sample-spring-web-simple-restcontroller.git</connection>
+        <developerConnection>scm:git:git://github.com/ingogriebsch/sample-spring-web-simple-restcontroller.git</developerConnection>
+        <url>https://github.com/ingogriebsch/sample-spring-web-simple-restcontroller.git</url>
     </scm>
 	<issueManagement>
-        <url>https://github.com/ingogriebsch/spring-web-simple-restcontroller/issues</url>
+        <url>https://github.com/ingogriebsch/sample-spring-web-simple-restcontroller/issues</url>
         <system>GitHub</system>
     </issueManagement>
 
