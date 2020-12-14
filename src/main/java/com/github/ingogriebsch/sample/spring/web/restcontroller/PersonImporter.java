@@ -17,6 +17,8 @@ package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
 import static com.google.common.collect.Sets.newHashSet;
 
+import java.util.Set;
+
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,7 +37,9 @@ class PersonImporter implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        newHashSet(person("Ingo", 44), person("Marcel", 33), person("Sophia", 21)).stream().forEach(p -> insert(p));
+        Set<Person> persons = newHashSet(person("Ingo", 44), person("Marcel", 33), person("Sophia", 21));
+        persons.forEach(p -> insert(p));
+        log.info(String.format("%d persons successfully imported and ready to be accessed!", persons.size()));
     }
 
     private void insert(Person personInsert) {
