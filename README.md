@@ -19,7 +19,7 @@ After the project is built and the Spring Boot service is running you can hit th
 *   [http://localhost:8080](http://localhost:8080) allows to access this site.
 *   [http://localhost:8080/persons](http://localhost:8080/persons) allows to access the person resources available through the service.
 
-Have a additional look onto the implementation to understand which endpoints available in addition.
+Have a look into the implementation to understand which endpoints are available in addition.
 
 ## Most important annotations and classes
 A collection of the most important annotations and classes that are necessary to implement this use case. 
