@@ -25,8 +25,11 @@ Have a additional look onto the implementation to understand which endpoints ava
 A collection of the most important annotations and classes that are necessary to implement this use case. 
 
 *   [@GetMapping](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html)
+*   [@PostMapping](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/javadoc-api/org/springframework/web/bind/annotation/PostMapping.html)
+*   [@DeleteMapping](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/javadoc-api/org/springframework/web/bind/annotation/DeleteMapping.html)
 *   [@RequestMapping](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html)
 *   [@RestController](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/javadoc-api/org/springframework/web/bind/annotation/RestController.html)
+*   [@WebMvcTest](https://docs.spring.io/spring-boot/docs/2.3.6.RELEASE/api/org/springframework/boot/test/autoconfigure/web/servlet/WebMvcTest.html)
 
 ## Used frameworks
 A collection of the mainly used frameworks in this project. 
