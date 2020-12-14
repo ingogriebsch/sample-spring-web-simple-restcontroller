@@ -8,14 +8,17 @@
 This sample shows how to implement a simple REST controller with Spring Web (and Spring Boot).
 
 ## How to build and run
-First, make sure that you have Java 8 or later installed and an established internet connection.
-Then, clone this Git repository an `cd` into folder `spring-web-simple-restcontroller`. 
-Now invoke `./mvnw spring-boot:run` and wait a moment.
 
-After the project is build and the Spring Boot service is running you can hit the following links to act with the service:
+*   First, make sure that you have Java 8 or later installed and an established Internet connection.
+*   Then, clone this Git repository an `cd` into folder `spring-web-simple-restcontroller`. 
+*   Now invoke `./mvnw spring-boot:run` and wait a moment.
+
+After the project is built and the Spring Boot service is running you can hit the following urls to act with the service:
 
 *   [http://localhost:8080](http://localhost:8080) allows to access this site.
 *   [http://localhost:8080/persons](http://localhost:8080/persons) allows to access the person resources available through the service.
+
+Have a additional look onto the implementation to understand which endpoints available in addition.
 
 ## Most important annotations and classes
 A collection of the most important annotations and classes that are necessary to implement this use case. 
