@@ -207,14 +207,14 @@
                 <executions>
                     <execution>
                         <id>rename-readme</id>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <phase>prepare-package</phase>
                         <configuration>
                             <sourceFile>${project.build.directory}/html/README.html</sourceFile>
                             <destinationFile>${project.build.outputDirectory}/static/index.html</destinationFile>
                         </configuration>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <phase>process-resources</phase>
                     </execution>
                 </executions>
             </plugin>
