@@ -7,11 +7,36 @@
 
 This sample shows how to implement a simple REST controller with Spring Web (and Spring Boot).
 
-## Used frameworks
-Collection of the mainly used frameworks in this project. There are more, but they are not that present inside the main use case, therefore they are not listed here.
+## How to build and run
+First, make sure that you have Java 8 or later installed and an established internet connection.
+Then, clone this Git repository an `cd` into folder `spring-web-simple-restcontroller`. 
+Now invoke `./mvnw spring-boot:run` and wait a moment.
 
-*   [Spring Web](https://docs.spring.io/spring/docs/4.3.12.RELEASE/spring-framework-reference/htmlsingle/#spring-web)
-*   [Spring Boot](https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/htmlsingle)
+After the project is build and the Spring Boot service is running you can hit the following links to act with the service:
+
+*   [http://localhost:8080](http://localhost:8080) allows to access this site.
+*   [http://localhost:8080/persons](http://localhost:8080/persons) allows to access the person resources available through the service.
+
+## Most important annotations and classes
+A collection of the most important annotations and classes that are necessary to implement this use case. 
+
+*   [@GetMapping](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html)
+*   [@RequestMapping](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html)
+*   [@RestController](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/javadoc-api/org/springframework/web/bind/annotation/RestController.html)
+
+## Used frameworks
+A collection of the mainly used frameworks in this project. 
+There are more, but they are not that present inside the main use case, therefore they are not listed here.
+
+*   [Spring Web](https://docs.spring.io/spring-framework/docs/5.2.9.RELEASE/spring-framework-reference/web.html#spring-web)
+*   [Spring Boot](https://docs.spring.io/spring-boot/docs/2.3.6.RELEASE/reference/htmlsingle/)
+
+## Additional guides
+The following guides illustrate how to implement this and related use cases.
+
+* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
+* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 
 ## License
 This code is open source software licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html).
