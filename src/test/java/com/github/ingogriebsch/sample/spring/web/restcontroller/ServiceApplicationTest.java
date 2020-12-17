@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-class ApplicationTest {
+class ServiceApplicationTest {
 
     @Test
     void application_context_should_load() {
