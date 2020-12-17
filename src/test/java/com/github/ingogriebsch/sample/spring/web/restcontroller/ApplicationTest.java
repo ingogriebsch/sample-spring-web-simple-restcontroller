@@ -15,16 +15,15 @@
  */
 package com.github.ingogriebsch.sample.spring.web.restcontroller;
 
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.Application.main;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = RANDOM_PORT)
 class ApplicationTest {
 
     @Test
-    void main_should_load_context() {
-        main(new String[] { "--server.port=0" });
+    void application_context_should_load() {
     }
 }
