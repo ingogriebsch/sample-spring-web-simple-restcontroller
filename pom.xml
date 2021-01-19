@@ -16,7 +16,7 @@
 	<packaging>jar</packaging>
 
 	<name>Spring Web simple REST controller sample</name>
-	<description>This sample shows you how to implement a simple REST controller with Spring Web (and Spring Boot)</description>
+	<description>This sample shows how to implement a simple REST controller with Spring Web (and Spring Boot)</description>
 	<url>https://github.com/ingogriebsch/sample-spring-web-simple-restcontroller</url>
 	<inceptionYear>2018</inceptionYear>
 	<organization>
