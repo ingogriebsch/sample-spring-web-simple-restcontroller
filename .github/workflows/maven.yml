@@ -21,7 +21,7 @@ jobs:
           java-version: 11
 
       - name: Verify artifacts
-        run: mvn -B -U verify
+        run: mvn -B -U verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v1
