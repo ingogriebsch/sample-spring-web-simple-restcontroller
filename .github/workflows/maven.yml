@@ -21,6 +21,9 @@ jobs:
           java-version: 11
 
       - name: Verify artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B -U verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
       - name: Upload coverage report
