@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.ingogriebsch.sample.spring.web.restcontroller;
+package de.ingogriebsch.sample.spring.web.restcontroller;
 
-import static org.springframework.boot.SpringApplication.run;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootApplication
-public class ServiceApplication {
+@SpringBootTest(webEnvironment = RANDOM_PORT)
+class ServiceApplicationTest {
 
-    public static void main(String[] args) {
-        run(ServiceApplication.class, args);
+    @Test
+    void application_context_should_load() {
     }
-
 }

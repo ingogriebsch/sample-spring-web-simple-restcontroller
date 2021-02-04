@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.ingogriebsch.sample.spring.web.restcontroller;
+package de.ingogriebsch.sample.spring.web.restcontroller;
 
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.BASE_PATH;
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_DELETE;
-import static com.github.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ONE;
 import static com.google.common.collect.Sets.newHashSet;
+import static de.ingogriebsch.sample.spring.web.restcontroller.PersonController.BASE_PATH;
+import static de.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_DELETE;
+import static de.ingogriebsch.sample.spring.web.restcontroller.PersonController.PATH_FIND_ONE;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;

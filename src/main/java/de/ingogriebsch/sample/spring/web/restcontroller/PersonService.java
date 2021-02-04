@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.ingogriebsch.sample.spring.web.restcontroller;
+package de.ingogriebsch.sample.spring.web.restcontroller;
 
 import java.util.HashSet;
 import java.util.Optional;

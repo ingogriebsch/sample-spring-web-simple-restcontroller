@@ -13,14 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.ingogriebsch.sample.spring.web.restcontroller;
+package de.ingogriebsch.sample.spring.web.restcontroller;
 
-import lombok.Data;
+import static org.springframework.boot.SpringApplication.run;
 
-@Data
-class Person {
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-    private final String id;
-    private final String name;
-    private final Integer age;
+@SpringBootApplication
+public class ServiceApplication {
+
+    public static void main(String[] args) {
+        run(ServiceApplication.class, args);
+    }
+
 }
