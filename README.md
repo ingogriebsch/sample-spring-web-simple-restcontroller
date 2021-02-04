@@ -1,6 +1,10 @@
 # Spring Web simple REST controller sample
 [![Actions Status](https://github.com/ingogriebsch/sample-spring-web-simple-restcontroller/workflows/build/badge.svg)](https://github.com/ingogriebsch/sample-spring-web-simple-restcontroller/actions)
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller)](https://sonarcloud.io/dashboard?id=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller&metric=alert_status)](https://sonarcloud.io/dashboard?id=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller&metric=coverage)](https://sonarcloud.io/dashboard?id=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller&metric=security_rating)](https://sonarcloud.io/dashboard?id=de.ingogriebsch.samples%3Asample-spring-web-simple-restcontroller)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This sample shows how to implement a simple REST controller with Spring Web (and Spring Boot).
